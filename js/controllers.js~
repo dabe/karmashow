@@ -1,0 +1,24 @@
+/* Controllers */
+
+function KarmaShowCtrl($scope, $http, $log) {
+
+	$http.jsonp('http://www.reddit.com/search.json?q=site%3Ayoutube.com&limit=100&sort=top&t=week&jsonp=JSON_CALLBACK')
+		.success(function(data) {
+			$scope.redditjson=data;
+	});
+}
+
+
+function tellAngular() {
+    var domElt = document.getElementById('body');
+    var scope = angular.element(domElt).scope();
+    scope.$apply(function() {
+        scope.width = window.innerWidth;
+        scope.height = window.innerHeight;
+    });
+}
+//first call of tellAngular when the dom is loaded
+document.addEventListener("DOMContentLoaded", tellAngular, false);
+//calling tellAngular on resize event
+window.onresize = tellAngular;
+
