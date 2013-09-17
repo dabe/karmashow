@@ -22,6 +22,7 @@ div.videoplayer {
 	position:fixed; 
 	left:0px; 
 	top:20px;
+	z-index: 0;
 }
 ul.images {
 	margin: 0;

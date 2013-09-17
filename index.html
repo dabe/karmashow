@@ -15,7 +15,7 @@
 
 <body ng-controller="KarmaShowCtrl">
 
-	<div class="fakediv"></div>
+	<!--<div class="fakediv"></div>-->
 	<div class="videolist" id="videolist">
 		<ul class="images">
 			<li ng-repeat="r in redditjson.data.children">
@@ -36,7 +36,7 @@
 
 		var player;
 		function onYouTubeIframeAPIReady() {
-			player = new YT.Player('player', {height: y-20, width: x});
+			player = new YT.Player('player', {height: y-20, width: x, playerVars: {wmode: 'opaque'}});
 		}
 		function loadVideo(url) {
 			videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
@@ -49,7 +49,7 @@
 			$("iframe, player").width($(window).width());
 		});	
 		
-		$(document).mousemove(function(e) {
+	/*	$(document).mousemove(function(e) {
 			my = e.pageY;
 			if (my <= 100) { 
 				$('#videolist').show('slide', { direction: "up" }, 400); 
@@ -58,7 +58,7 @@
 				$('#videolist').hide('slide', { direction: "up" }, 400); 
 			}
 			console.log(my);
-		});
+		});*/
 	</script>
 	
 </body>
