@@ -18,7 +18,7 @@
 
 	<div class="videolist" id="videolist">
 		<div class="hidevideos" onclick="hidevideos()"></div>
-		<ul class="images">
+		<ul class="images" id="images">
 			<li ng-repeat="r in redditjson.data.children">
 				<img height="100" src="{{r.data.media.oembed.thumbnail_url || r.data.thumbnail}}" title="{{r.data.title}}" alt="" onclick="loadVideo('{{r.data.media.oembed.url}}');" />
 			</li>
@@ -30,6 +30,7 @@
 	<div align="center" class="videoplayer"><div id="player" /></div>
 	<script src="http://www.youtube.com/player_api"></script>
 	<script>
+		var scrollpos = 0;
 		var w = window,
 		d = document,
 		e = d.documentElement,
@@ -44,19 +45,21 @@
 		function loadVideo(url) {
 			videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
 			player.loadVideoById(videoid[1]);
-			$('#videolist').hide('slide', { direction: "up" }, 600);
+			hidevideos();
 		}
 
 		function showvideos() {
-			$('#videolist').show('slide', { direction: "up" }, 400);
+			$('#videolist').show('slide', { direction: "up" }, 400, function() { $("#images").scrollLeft(scrollpos);  } );
+			$("#images").scrollLeft(scrollpos);
 		}
 		
 		function hidevideos() {
+			scrollpos = $("#images").scrollLeft();
 			$('#videolist').hide('slide', { direction: "up" }, 600);
 		}
 
 		$(window).resize(function () {
-			$("iframe, player").height($(window).height()-20);
+			$("iframe, player").height($(window).height());
 			$("iframe, player").width($(window).width());
 		});	
 		
