@@ -15,7 +15,7 @@
 
 	<ul class="images">
 		<li ng-repeat="r in redditjson.data.children">
-			<img src="{{r.data.thumbnail}}" title='{{r.data.title}}' onclick="loadVideo('{{r.data.media.oembed.url}}');" />
+			<img src="{{r.data.thumbnail}}" title="{{r.data.title}}" alt="" onclick="loadVideo('{{r.data.media.oembed.url}}');" />
 		</li>
 	</ul>
 	
