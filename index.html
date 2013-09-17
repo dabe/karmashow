@@ -23,7 +23,9 @@
 			</li>
 		</ul>
 	</div>
-	
+
+	<div class="showvideos" onclick="showvideos()"></div>
+
 	<div align="center" class="videoplayer"><div id="player" /></div>
 	<script src="http://www.youtube.com/player_api"></script>
 	<script>
@@ -42,6 +44,10 @@
 			videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
 			player.loadVideoById(videoid[1]);
 			$('#videolist').hide('slide', { direction: "up" }, 600);
+		}
+
+		function showvideos() {
+			$('#videolist').show('slide', { direction: "up" }, 400);
 		}
 		
 		$(window).resize(function () {

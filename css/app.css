@@ -1,7 +1,6 @@
 html body {
 	margin: 0; 
 	padding:0;
-	background-color: black;
 }
 div.videolist {
 	position:fixed; 
@@ -13,7 +12,7 @@ div.videolist {
 div.videoplayer {
 	position:fixed; 
 	left:0px; 
-	top:20px;
+	top:0px;
 	z-index: 0;
 }
 ul.images {
@@ -28,4 +27,15 @@ ul.images li {
 	display: inline;
 	width: 150px;
 	height: 150px;
+}
+div.showvideos {
+	position:fixed;
+	top:0px;
+	left:50%;
+	z-index:1900;
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid gray;
 }
