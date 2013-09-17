@@ -2,34 +2,63 @@
 <html lang="en" ng-app>
 <head>
 	<meta charset="utf-8">
-	<title>My AngularJS App</title>
+	<title>The Karma Show</title>
 	<link rel="stylesheet" href="css/app.css"/>
 	<!-- In production use:
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 	-->
+	<script src="lib/jquery-2.0.3.min.js"></script>
+	<script src="lib/jquery-ui-1.10.3.min.js"></script>
 	<script src="lib/angular.min.js"></script>
 	<script src="js/controllers.js"></script>
 </head>
 
 <body ng-controller="KarmaShowCtrl">
 
-	<ul class="images">
-		<li ng-repeat="r in redditjson.data.children">
-			<img src="{{r.data.thumbnail}}" title="{{r.data.title}}" alt="" onclick="loadVideo('{{r.data.media.oembed.url}}');" />
-		</li>
-	</ul>
+	<div class="fakediv"></div>
+	<div class="videolist" id="videolist">
+		<ul class="images">
+			<li ng-repeat="r in redditjson.data.children">
+				<img height="100" src="{{r.data.media.oembed.thumbnail_url || r.data.thumbnail}}" title="{{r.data.title}}" alt="" onclick="loadVideo('{{r.data.media.oembed.url}}');" />
+			</li>
+		</ul>
+	</div>
 	
-	<div align="center"><div id="player" /></div>
+	<div align="center" class="videoplayer"><div id="player" /></div>
 	<script src="http://www.youtube.com/player_api"></script>
 	<script>
+		var w = window,
+		d = document,
+		e = d.documentElement,
+		g = d.getElementsByTagName('body')[0],
+		x = w.innerWidth || e.clientWidth || g.clientWidth,
+		y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+
 		var player;
 		function onYouTubeIframeAPIReady() {
-			player = new YT.Player('player', {height: 300, width: (300*640/390) });
+			player = new YT.Player('player', {height: y-20, width: x});
 		}
 		function loadVideo(url) {
 			videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
 			player.loadVideoById(videoid[1]);
+			$('#videolist').hide('slide', { direction: "up" }, 600);
 		}
+		
+		$(window).resize(function () {
+			$("iframe, player").height($(window).height()-20);
+			$("iframe, player").width($(window).width());
+		});	
+		
+		$(document).mousemove(function(e) {
+			my = e.pageY;
+			if (my <= 100) { 
+				$('#videolist').show('slide', { direction: "up" }, 400); 
+			}
+			if (my >= 120) { 
+				$('#videolist').hide('slide', { direction: "up" }, 400); 
+			}
+			console.log(my);
+		});
 	</script>
 	
 </body>

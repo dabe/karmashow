@@ -1,9 +1,35 @@
+html body {
+	margin: 0; 
+	padding:0;
+	background-color: black;
+}
+div.fakediv {
+	position:fixed; 
+	left:0px; 
+	top:0px; 
+	height:130px;
+	z-index:1000;
+	width:100%;
+}
+div.videolist {
+	position:fixed; 
+	left:0px; 
+	top:0px; 
+	z-index:2000;
+	width:100%;
+}
+div.videoplayer {
+	position:fixed; 
+	left:0px; 
+	top:20px;
+}
 ul.images {
 	margin: 0;
 	padding: 0;
 	white-space: nowrap;
 	overflow-x: auto;
 	background-color: #ddd;
+	width:100%;
 }
 ul.images li {
 	display: inline;
