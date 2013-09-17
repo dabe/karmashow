@@ -17,6 +17,7 @@
 <body ng-controller="KarmaShowCtrl">
 
 	<div class="videolist" id="videolist">
+		<div class="hidevideos" onclick="hidevideos()"></div>
 		<ul class="images">
 			<li ng-repeat="r in redditjson.data.children">
 				<img height="100" src="{{r.data.media.oembed.thumbnail_url || r.data.thumbnail}}" title="{{r.data.title}}" alt="" onclick="loadVideo('{{r.data.media.oembed.url}}');" />
@@ -50,6 +51,10 @@
 			$('#videolist').show('slide', { direction: "up" }, 400);
 		}
 		
+		function hidevideos() {
+			$('#videolist').hide('slide', { direction: "up" }, 600);
+		}
+
 		$(window).resize(function () {
 			$("iframe, player").height($(window).height()-20);
 			$("iframe, player").width($(window).width());

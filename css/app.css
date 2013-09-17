@@ -39,3 +39,14 @@ div.showvideos {
 	border-right: 20px solid transparent;
 	border-top: 20px solid gray;
 }
+div.hidevideos {
+	position:absolute;
+	top:80px;
+	left:50%;
+	z-index:2100;
+	width:0px;
+	height:0px;
+	border-left: 20px solid transparent;
+	border-right:20px solid transparent;
+	border-bottom: 20px solid gray;
+}
