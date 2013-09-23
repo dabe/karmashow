@@ -8,6 +8,8 @@ div.videolist {
 	top:0px; 
 	z-index:2000;
 	width:100%;
+	height: 105px;
+	background-color: #ddd;
 }
 div.videoplayer {
 	position:fixed; 
