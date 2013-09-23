@@ -29,6 +29,7 @@ ul.images li {
 	display: inline;
 	width: 150px;
 	height: 150px;
+	cursor: pointer;
 }
 div.showvideos {
 	position:fixed;
@@ -40,6 +41,7 @@ div.showvideos {
 	border-left: 20px solid transparent;
 	border-right: 20px solid transparent;
 	border-top: 20px solid gray;
+	cursor: pointer;
 }
 div.hidevideos {
 	position:absolute;
@@ -51,4 +53,5 @@ div.hidevideos {
 	border-left: 20px solid transparent;
 	border-right:20px solid transparent;
 	border-bottom: 20px solid gray;
+	cursor: pointer;
 }
