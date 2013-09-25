@@ -111,3 +111,11 @@ div.menubutton {
 	border-radius:3px;
 	cursor:pointer;
 }
+div.reddit {
+	position:absolute;
+	bottom:0;
+	right:0;
+	color:#336699;
+	font-family:sans-serif;
+	font-size:12px;
+}

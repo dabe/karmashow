@@ -20,6 +20,7 @@
 	<div class="mainTitle" id="mainTitle">
 		<div class="title">The Karma Show</div>	
 		<div class="whiteline"></div>
+		<div class="reddit">powered by <a href="http://www.reddit.com">Reddit</a></div>
 	</div>
 
 	<div class="menubutton" onclick="showmenu()">&#9776;</div>
@@ -28,7 +29,7 @@
 		<div class="hidevideos" onclick="hidevideos()"></div>
 		<ul class="images" id="images">
 			<li ng-repeat="r in redditjson.data.children">
-				<img height="100" src="{{r.data.media.oembed.thumbnail_url || r.data.thumbnail}}" title="{{r.data.title}}" alt="" onclick="loadVideo('{{r.data.media.oembed.url}}');" />
+			<img height="100" id='{{r.data.name}}' src="{{r.data.media.oembed.thumbnail_url || r.data.thumbnail}}" title="{{r.data.title}}" alt="" onclick="loadVideo('{{r.data.name}}', '{{r.data.media.oembed.url}}');" />
 			</li>
 		</ul>
 	</div>
@@ -47,12 +48,16 @@
 		y = w.innerHeight|| e.clientHeight|| g.clientHeight;
 
 		var player;
+		var currentplayed;
+
 		function onYouTubeIframeAPIReady() {
-			player = new YT.Player('player', {height: y, width: x, playerVars: {wmode: 'opaque'}});
+			player = new YT.Player('player', {height: y, width: x, playerVars: {wmode: 'opaque'}, events: {'onStateChange':nextVideo } });
 		}
-		function loadVideo(url) {
+
+		function loadVideo(name, url) {
 			videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
 			player.loadVideoById(videoid[1]);
+			currentplayed = name;
 			$('#mainTitle').hide('puff');
 			hidevideos();
 		}
@@ -71,6 +76,13 @@
 			$('#mainTitle').show('puff');
 			showvideos();
 			player.pauseVideo();
+		}
+
+		function nextVideo(event) {
+			if (event.data == 0) {
+				//Play next video...
+				$('#'+currentplayed).parent().next().children().click();
+			}
 		}
 
 		$(window).resize(function () {
