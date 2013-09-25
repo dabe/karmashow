@@ -119,3 +119,30 @@ div.reddit {
 	font-family:sans-serif;
 	font-size:12px;
 }
+div.mainmenu {
+	position:absolute;
+	margin:0;
+	padding:0;
+	top:37.5%;
+	left:5%;
+	padding-top:100px;
+	color:white;
+	font-family:sans-serif;
+	font-size:20px;
+}
+div.mainmenu table {
+	width:500px;
+	text-align:center;
+	vertical-align:top;
+}
+div.mainmenu td {
+	vertical-align:top;
+}
+div.mainmenu div {
+	padding:10px;
+	cursor:pointer;
+}
+div.mainmenu .selected {
+	border:1px solid white;
+}
+

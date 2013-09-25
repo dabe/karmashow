@@ -13,6 +13,8 @@ function KarmaShowCtrl($scope, $http, $log, $location) {
 		.success(function(data) {
 			$scope.redditjson=data;
 	});
+
+	$scope.$location = $location;
 }
 
 
