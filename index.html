@@ -45,6 +45,7 @@
 
 	<div class="videolist" id="videolist">
 		<div class="hidevideos" onclick="hidevideos()"></div>
+		<div class="videolisttitle">The video list</div>
 		<ul class="images" id="images">
 			<li ng-repeat="r in redditjson.data.children">
 			<img height="100" id='{{r.data.name}}' src="{{r.data.media.oembed.thumbnail_url || r.data.thumbnail}}" title="{{r.data.title}}" alt="" onclick="loadVideo('{{r.data.name}}', '{{r.data.media.oembed.url}}');" />
@@ -114,6 +115,7 @@
 				$(event.target).addClass("selected");
 				var id = $(event.target).parent().attr('id');
 				var value = $(event.target).text().toLowerCase();
+				if (value=='all') { value = '*'; }
 				$scope = angular.element($('body')).scope()
 				$scope.$apply(function() {
 					path = $scope.$location.path('')
@@ -121,6 +123,7 @@
 					search[id] = value;
 					path.search(search);
 				});
+				$scope.loadData();
 			});
 		});
 

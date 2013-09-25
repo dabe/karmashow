@@ -18,6 +18,19 @@ div.videoplayer {
 	top:0px;
 	z-index: 0;
 }
+div.videolisttitle {
+	position:absolute;
+	top:0;
+	line-height:100px;
+	margin:0;
+	width:100%;
+	text-align:center;
+	font-family:sans-serif;
+	font-weight:bolder;
+	color:lightgray;
+	font-size:50px;
+	z-index:-1;
+}
 ul.images {
 	margin: 0;
 	padding: 0;
@@ -145,4 +158,3 @@ div.mainmenu div {
 div.mainmenu .selected {
 	border:1px solid white;
 }
-
