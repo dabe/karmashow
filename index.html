@@ -17,6 +17,13 @@
 
 <body ng-controller="KarmaShowCtrl">
 
+	<div class="mainTitle" id="mainTitle">
+		<div class="title">The Karma Show</div>	
+		<div class="whiteline"></div>
+	</div>
+
+	<div class="menubutton" onclick="showmenu()">&#9776;</div>
+
 	<div class="videolist" id="videolist">
 		<div class="hidevideos" onclick="hidevideos()"></div>
 		<ul class="images" id="images">
@@ -46,6 +53,7 @@
 		function loadVideo(url) {
 			videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
 			player.loadVideoById(videoid[1]);
+			$('#mainTitle').hide('puff');
 			hidevideos();
 		}
 
@@ -57,6 +65,12 @@
 		function hidevideos() {
 			scrollpos = $("#images").scrollLeft();
 			$('#videolist').hide('slide', { direction: "up" }, 600);
+		}
+
+		function showmenu() {
+			$('#mainTitle').show('puff');
+			showvideos();
+			player.pauseVideo();
 		}
 
 		$(window).resize(function () {
