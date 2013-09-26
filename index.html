@@ -27,18 +27,23 @@
 					<td id="sort">
 						<div class="selected">Top</div>
 						<div>Hot</div>
+						<div>Comments</div>
 					</td>
 					<td id="t">
 						<div class="selected">Week</div>
 						<div>Day</div>
+						<div>Month</div>
+						<div>Year</div>
+						<div>All</div>
 					</td>
 					<td id="subreddit">
 						<div class="selected">All</div>
+						<div ng-repeat="s in subreddits">{{s}}</div>
 					</td>
 				</tr>
 			</table>
 		</div>
-		<div class="reddit">powered by <a href="http://www.reddit.com">Reddit</a></div>
+		<!--<div class="reddit">powered by <a href="http://www.reddit.com">Reddit</a></div>-->
 	</div>
 
 	<div class="menubutton" onclick="showmenu()">&#9776;</div>

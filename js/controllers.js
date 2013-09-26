@@ -2,6 +2,8 @@
 
 function KarmaShowCtrl($scope, $http, $log, $location) {
 
+	$scope.subreddits = ['Videos', 'Music', 'Movies', 'Funny', 'Humor', 'Documentaries', 'Politic', 'Sports', 'Science', 'Gaming', 'Listentothis', 'Metal', 'Electronicmusic', 'Aww', 'Ted','Android', 'Apple', 'Foodporn', 'MotivationVideos', 'Meditation'];
+
 	$scope.loadData = function() {
 		var sort = ($location.search()).sort;
 		if (typeof(sort) == 'undefined') { sort = 'top'; }

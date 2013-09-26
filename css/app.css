@@ -36,7 +36,6 @@ ul.images {
 	padding: 0;
 	white-space: nowrap;
 	overflow-x: auto;
-	background-color: #ddd;
 	width:100%;
 }
 ul.images li {
@@ -85,7 +84,7 @@ div.title {
 	position:absolute;
 	margin:0;
 	padding:0;
-	top:37.5%;
+	top:30%;
 	left:5%;
 	color:white;
 	font-family:helvetica,sans-serif;
@@ -101,7 +100,7 @@ div.whiteline {
 	padding:0;
 	background-color:white;
 	vertical-align:bottom;
-	top:37.5%;
+	top:30%;
 	left:5%;
 	width:95%;
 	height:7px;
@@ -138,7 +137,7 @@ div.mainmenu {
 	position:absolute;
 	margin:0;
 	padding:0;
-	top:37.5%;
+	top:30%;
 	left:5%;
 	padding-top:100px;
 	color:white;
@@ -146,7 +145,6 @@ div.mainmenu {
 	font-size:20px;
 }
 div.mainmenu table {
-	width:500px;
 	text-align:center;
 	vertical-align:top;
 }
@@ -172,4 +170,11 @@ div.loading {
 }
 div.loading img {
 	height:70px;
+}
+td { width:150px; padding-right:10px; padding-left:10px; }
+td#t {width:110px; }
+td#subreddit { width:auto; }
+td#subreddit div {
+	display:inline-block;
+	min-width:110px;
 }
