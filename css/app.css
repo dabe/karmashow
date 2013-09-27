@@ -178,3 +178,9 @@ td#subreddit div {
 	display:inline-block;
 	min-width:110px;
 }
+div.share {
+	position:absolute;
+	bottom:0;
+	right:0;
+	z-index:99000;
+}
